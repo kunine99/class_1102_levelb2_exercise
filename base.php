@@ -105,7 +105,8 @@ class DB{
                                      VALUES('".implode("','",$array)."')";
         }
         // echo $sql;
-
+        
+        //exec是會回傳我影響的筆數..?
         return $this->pdo->exec($sql);
     }
     
