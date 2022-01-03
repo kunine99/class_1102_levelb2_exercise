@@ -12,12 +12,15 @@
 <div id="alerr" style="background:rgba(51,51,51,0.8); color:#FFF; min-height:100px; width:300px; position:fixed; display:none; z-index:9999; overflow:auto;">
 	<pre id="ssaa"></pre>
 </div>
-<iframe name="back" style="display:none;"></iframe>
 	<div id="all">
     	<div id="title">
-        00 月 00 號 Tuesday | 今日瀏覽: 1 | 累積瀏覽: 36        </div>
+        00 月 00 號 Tuesday | 今日瀏覽: 1 | 累積瀏覽: 36        
+		<a href="index.php" style="float: right;">回首頁</a>
+	</div>
         <div id="title2">
-        	
+        	<a href="index.php" title="健康促進網-回首頁">
+				<img src="./icon/02B01.jpg" alt="" srcset="">
+			</a>
         </div>
         <div id="mm">
         	<div class="hal" id="lef">
@@ -29,7 +32,8 @@
                	                 </div>
             <div class="hal" id="main">
             	<div>
-            		
+					<!-- 在html只要有enter就會產生空白，所以這邊記得span 跟跑馬燈之間不要空白，或是width不要剛好82% -->
+            		<marquee  style="width:80%; display:inline-block;">請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地！詳見最新文章</marquee>
                 	<span style="width:18%; display:inline-block;">
                     	                    	<a href="?do=login">會員登入</a>
                     	                    </span>
@@ -39,7 +43,7 @@
             </div>
         </div>
         <div id="bottom">
-    	    本網站建議使用：IE9.0以上版本，1024 x 768 pixels 以上觀賞瀏覽 ， Copyright © 2012健康促進網社群平台 All Right Reserved 
+    	    本網站建議使用：IE9.0以上版本，1024 x 768 pixels 以上觀賞瀏覽 ， Copyright © 2022健康促進網社群平台 All Right Reserved 
     		 <br>
     		 服務信箱：health@test.labor.gov.tw<img src="./icon/02B02.jpg" width="45">
         </div>
