@@ -14,7 +14,7 @@
 	<pre id="ssaa"></pre>
 </div>
 	<div id="all">
-    	<?php include "./front/header.php"; ?>
+    	<?php include "front/header.php";?>
         <div id="mm">
         	<div class="hal" id="lef">
             	                	    <a class="blo" href="?do=po">分類網誌</a>
@@ -45,7 +45,7 @@ if(file_exists($file)){
                 </div>
             </div>
         </div>
-		<?php include "./front/footer.php"; ?>
+		<?php include "front/footer.php"; ?>
     </div>
 
 </body></html>

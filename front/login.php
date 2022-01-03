@@ -1,5 +1,5 @@
 <fieldset>
-    <legend>會員</legend>
+    <legend>會員登入</legend>
     <table>
         <tr>
             <td>帳號</td>

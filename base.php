@@ -143,7 +143,7 @@ function to($url){
     header("location:".$url);
 }
 
-$User=new DB('user');
+$User=new DB('users');
 $News=new DB('news');
 $View=new DB('view');
 $Que=new DB('que');
