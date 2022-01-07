@@ -12,6 +12,8 @@
     </fieldset>
     <fieldset style="width:70%">
         <legend>文章列表</legend>
+        <!-- 如果列表顯示，新聞內容就隱藏 -->
+        <!-- 如果新聞內容顯示，列表就隱藏 -->
         <div id="newslist"></div>
         <div id="news" style="display:none"></div>
     </fieldset>
