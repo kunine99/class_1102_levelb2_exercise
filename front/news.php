@@ -17,15 +17,28 @@ $start=($now-1)*$div;
 $rows=$News->all(['sh'=>1]," limit $start,$div");
 
 foreach($rows as $key => $row){
-
-?>
+    
+    ?>
 <tr>
-        <td class="switch"><?=$row['title'];?></td>
-        <td class="switch">
-            <div class="short"><?=mb_substr($row['text'],0,20);?>...</div>
-            <div class="full" style="display:none"><?=nl2br($row['text']);?></div>
+    <td class="switch"><?=$row['title'];?></td>
+    <td class="switch">
+        <div class="short"><?=mb_substr($row['text'],0,20);?>...</div>
+        <div class="full" style="display:none"><?=nl2br($row['text']);?></div>
+    </td>
+    <td>
+        <?php
+                if(isset($_SESSION['login'])){
+                    // 用log去news查有沒有按過讚   再用math..?
+                    $chk=$Log->math('count','*',['news'=>$row['id'],'user'=>$_SESSION['login']]);
+                    if($chk>0){
+                        echo "<a class='g' data-news='{$row['id']}' data-type='1'>收回讚</a>";
+                    }else{
+                        echo "<a class='g' data-news='{$row['id']}' data-type='2'>讚</a>";
+                    }
+                }
+
+            ?>
         </td>
-        <td></td>
     </tr>
 <?php
 }
@@ -61,9 +74,31 @@ if(($now+1)<=$pages){
 </fieldset>
 
 <script>
-$(".switch").on("click",function(){
+    // 我要告訴他是誰按讚了
+    $(".switch").on("click",function(){
     $(this).parent().find(".short,.full").toggle()
 })
+
+$(".g").on("click",function(){
+        let type=$(this).data('type')
+        let news=$(this).data('news')
+    $.post("api/good.php",{type,news},()=>{
+        //location.reload()
+        // 我要根據type為我畫面上做什麼事情
+        switch(type){
+            // 如果type是1(收回讚) break
+            case 1:
+               $(this).text("讚");
+               $(this).data('type',2)
+            break;
+            case 2:
+                $(this).text("收回讚");
+                $(this).data('type',1)
+            break;
+        }
+    })
+})
+
 
 </script>
 
