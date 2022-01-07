@@ -18,7 +18,7 @@ $tarray=[
     $pages=ceil($total/$div);
     $now=$_GET['p']??1;
     $start=($now-1)*$div;
-
+//資料庫desc 由大到小 
     $rows=$News->all(['sh'=>1]," order by `good` desc limit $start,$div");
     foreach ($rows as $key => $row) {
     ?>
@@ -32,7 +32,7 @@ $tarray=[
             </div>
         </td>
         <td>
-            <?=$row['good'];?>個人說<img src='icon/02B03.jpg' style='width:25px'>
+        <span><?=$row['good'];?></span>個人說<img src='icon/02B03.jpg' style='width:25px'>
             -<?php
                 if(isset($_SESSION['login'])){
                     $chk=$Log->math('count','*',['news'=>$row['id'],'user'=>$_SESSION['login']]);
@@ -88,16 +88,21 @@ $(".g").on("click",function(){
         let news=$(this).data('news')
     $.post("api/good.php",{type,news},()=>{
         location.reload()
-/*         switch(type){
-            case 1:
-               $(this).text("讚");
-               $(this).data('type',2)
-            break;
-            case 2:
-                $(this).text("收回讚");
-                $(this).data('type',1)
-            break;
-        } */
+        // let count;
+        //  switch(type){
+        //     case 1:  //收回讚
+        //        $(this).text("讚");
+        //        $(this).data('type',2)
+        //         count=$(this).siblings('span').text()*1
+        //         $(this).siblings('span').text(count-1)
+        //     break;
+        //     case 2:
+        //         $(this).text("收回讚");
+        //         $(this).data('type',1)
+        //         count=$(this).siblings('span').text()*1
+        //         $(this).siblings('span').text(count+1)
+        //     break;
+        // } 
     })
 })
 </script>
