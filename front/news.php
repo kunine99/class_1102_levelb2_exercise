@@ -16,9 +16,9 @@ $start=($now-1)*$div;
 
 $rows=$News->all(['sh'=>1]," limit $start,$div");
 
-foreach($row as $key => $row){
+foreach($rows as $key => $row){
+
 ?>
-<!-- 找到.子元素 find或children? -->
 <tr>
         <td class="switch"><?=$row['title'];?></td>
         <td class="switch">
