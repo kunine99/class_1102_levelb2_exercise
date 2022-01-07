@@ -7,7 +7,12 @@
         <td>人氣</td>
     </tr>
     <?php
-
+$tarray=[
+    "1"=>"健康新知",
+    "2"=>"菸害防治",
+    "3"=>"癌症防治",
+    "4"=>"慢性病防治",
+];
     $total=$News->math("count","*");
     $div=5;
     $pages=ceil($total/$div);
@@ -21,7 +26,10 @@
         <td class="switch"><?=$row['title'];?></td>
         <td class="switch">
             <div class="short"><?=mb_substr($row['text'],0,20);?>...</div>
-            <div class="full" style="display:none"><?=nl2br($row['text']);?></div>
+            <div class="pop">
+                <h2 style='color:skyblue'><?=$tarray[$row['type']];?></h2>
+                <?=nl2br($row['text']);?>
+            </div>
         </td>
         <td>
             <?=$row['good'];?>個人說<img src='icon/02B03.jpg' style='width:25px'>
@@ -36,7 +44,7 @@
 
 if(($now-1)>0){
     $prev=$now-1;
-    echo "<a href='index.php?do=news&p=$prev'> ";
+    echo "<a href='index.php?do=pop&p=$prev'> ";
     echo " < ";
     echo " </a>";
 }
@@ -44,14 +52,14 @@ if(($now-1)>0){
 
 for($i=1;$i<=$pages;$i++){
     $font=($now==$i)?'24px':'16px';
-    echo "<a href='index.php?do=news&p=$i' style='font-size:$font'> ";
+    echo "<a href='index.php?do=pop&p=$i' style='font-size:$font'> ";
     echo $i;
     echo " </a>";
 }
 
 if(($now+1)<=$pages){
     $next=$now+1;
-    echo "<a href='index.php?do=news&p=$next'> ";
+    echo "<a href='index.php?do=pop&p=$next'> ";
     echo " > ";
     echo " </a>";
 }
@@ -62,7 +70,7 @@ if(($now+1)<=$pages){
 <script>
 $(".switch").hover(
     function(){
-    $(this).parent().find(".short,.full").toggle()
+    $(this).parent().find(".pop").toggle()
 })
 
 </script>
