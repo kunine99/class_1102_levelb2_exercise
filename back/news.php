@@ -70,7 +70,7 @@ if(($now+1)<=$pages){
 ?>
 </div>
 <!-- ct是內建的，要用表單送出所以用表單不要用ajax -->
-<!-- ctrl+shift+p  找>emennt -->
+<!-- ctrl+shift+p  找>emmet -->
 <div class="ct"><input type="submit" value="確定修改"></div>
 </form>
 
