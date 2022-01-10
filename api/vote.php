@@ -12,4 +12,4 @@ $Que->save($subject);
 
 
 
-to("../index.php?do=que");
+to("../index.php?do=result&id=".$subject['id']);
