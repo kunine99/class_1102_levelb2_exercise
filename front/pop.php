@@ -13,7 +13,8 @@ $tarray=[
     "3"=>"癌症防治",
     "4"=>"慢性病防治",
 ];
-    $total=$News->math("count","*");
+// 我們撈的資料要顯示 所以計算的基礎也要以顯示的資料去算(顯示的才要算)
+    $total=$News->math("count","*",['sh'=>1]);
     $div=5;
     $pages=ceil($total/$div);
     $now=$_GET['p']??1;
